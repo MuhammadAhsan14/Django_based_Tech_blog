@@ -1,0 +1,17 @@
+{% autoescape off %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Registration</title>
+</head>
+<body>
+    <p>Hi {{ user.username }},</p>
+    <p>Please click on the link below to confirm your registration:</p>
+    <p><a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Confirm Registration</a></p>
+    <p>If you did not create an account, no further action is required.</p>
+    <p>Thanks,<br>Your Company Team</p>
+</body>
+</html>
+{% endautoescape %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - Bootstrap 5 Advanced Assignment {% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="container">
+        <h1>Welcome to Our Website</h1>
+        <p>Your success is our priority</p>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    </div>
+</header>
+
+
+<!-- Services Section -->
+<section id="services" class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-briefcase fs-1 mb-3"></i>
+                    <h5 class="card-title">Service 1</h5>
+                    <p class="card-text">Description of service 1.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-palette fs-1 mb-3"></i>
+                    <h5 class="card-title">Service 2</h5>
+                    <p class="card-text">Description of service 2.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-people fs-1 mb-3"></i>
+                    <h5 class="card-title">Service 3</h5>
+                    <p class="card-text">Description of service 3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="container my-5 ">
+    <div id="testimonialCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="testimonial-card">
+                    <div class="card">
+                        <img src="{% static 'images/1.jpg' %}" class="card-img-top" alt="Testimonial 1">
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"This is a great service!"</p>
+                                <footer class="blockquote-footer">John Doe</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="testimonial-card">
+                    <div class="card">
+                        <img src="{% static 'images/2.jpg' %}" class="card-img-top" alt="Testimonial 2">
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Highly recommend this company!"</p>
+                                <footer class="blockquote-footer">Jane Smith</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="testimonial-card">
+                    <div class="card">
+                        <img src="{% static 'images/3.jpg' %}" class="card-img-top" alt="Testimonial 3">
+                        <div class="card-body">
+                            <blockquote class="blockquote">
+                                <p class="mb-0">"Exceptional quality and service!"</p>
+                                <footer class="blockquote-footer">Emily Johnson</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section id="contact" class="container my-5">
+    <h2>Contact Us</h2>
+    <form class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
+            <div class="invalid-feedback">Please enter your message.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+{% endblock %}

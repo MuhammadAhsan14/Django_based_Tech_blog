@@ -1,0 +1,128 @@
+.navbar-custom {
+    background-color: #007bff; /* Blue background color */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .dropdown-toggle,
+.navbar-custom .btn {
+    color: white; /* White text color */
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .dropdown-toggle:hover,
+.navbar-custom .btn:hover {
+    color: #cce7ff; /* Lighter blue on hover */
+}
+.upperbot {
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+
+.upperbot {
+    margin-top: 100px;
+    margin-bottom: 25px;
+}
+/* General styling for the post container */
+.container.upperbot {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.post-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.post-reactions {
+    margin-top: 20px;
+}
+
+.reaction-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.reaction-button:hover {
+    color: #007bff;
+}
+
+.comments-section {
+    margin-top: 30px;
+}
+
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+}
+
+.comment-author .author-image {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.comment-author .author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-form {
+    margin-top: 20px;
+}
+
+#comment-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#comment-form button {
+    float: right;
+}
+

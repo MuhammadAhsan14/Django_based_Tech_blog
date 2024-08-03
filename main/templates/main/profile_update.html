@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top: 100px; margin-bottom: 25px;">
+    <h2>Update Profile</h2>
+    <form method="POST" action="{% url 'profile_update' %}">
+        {% csrf_token %}
+        {{ profile_form.non_field_errors }}
+        <div class="mb-3">
+            {{ profile_form.username.label_tag }}
+            {{ profile_form.username }}
+            {{ profile_form.username.errors }}
+        </div>
+        <div class="mb-3">
+            {{ profile_form.email.label_tag }}
+            {{ profile_form.email }}
+            {{ profile_form.email.errors }}
+        </div>
+        <div class="mb-3">
+            {{ profile_form.first_name.label_tag }}
+            {{ profile_form.first_name }}
+            {{ profile_form.first_name.errors }}
+        </div>
+        <div class="mb-3">
+            {{ profile_form.last_name.label_tag }}
+            {{ profile_form.last_name }}
+            {{ profile_form.last_name.errors }}
+        </div>
+
+        <h3>Change Password</h3>
+        {{ password_form.non_field_errors }}
+        <div class="mb-3 position-relative">
+            {{ password_form.old_password.label_tag }}
+            <div class="input-group">
+                {{ password_form.old_password }}
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('id_old_password')">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+            {{ password_form.old_password.errors }}
+        </div>
+        <div class="mb-3 position-relative">
+            {{ password_form.new_password1.label_tag }}
+            <div class="input-group">
+                {{ password_form.new_password1 }}
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('id_new_password1')">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+            {{ password_form.new_password1.errors }}
+        </div>
+        <div class="mb-3 position-relative">
+            {{ password_form.new_password2.label_tag }}
+            <div class="input-group">
+                {{ password_form.new_password2 }}
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility('id_new_password2')">
+                    <i class="fas fa-eye"></i>
+                </button>
+            </div>
+            {{ password_form.new_password2.errors }}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<script>
+    function togglePasswordVisibility(fieldId) {
+        const field = document.getElementById(fieldId);
+        const fieldType = field.getAttribute('type');
+        const icon = field.nextElementSibling.querySelector('i');
+        if (fieldType === 'password') {
+            field.setAttribute('type', 'text');
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            field.setAttribute('type', 'password');
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+</script>
+{% endblock %}

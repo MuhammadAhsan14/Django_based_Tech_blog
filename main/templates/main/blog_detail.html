@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container upperbot">
+    <div class="post-header">
+        <div class="post-author">
+            <img src="{% static 'images/profile-placeholder.png' %}" alt="{{ post.author.username }}" class="author-image">
+            <div class="author-info">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <small class="post-meta">Posted by {{ post.author.username }} on {{ post.created_at }}</small>
+            </div>
+        </div>
+    </div>
+    {% if post.image %}
+    <div class="post-image">
+        <img src="{{ post.image.url }}" class="img-fluid" alt="{{ post.title }}">
+    </div>
+    {% endif %}
+    <div class="post-content">
+        <p>{{ post.content }}</p>
+    </div>
+    <div class="post-reactions" data-react-url="{% url 'react_to_post' post.id %}">
+        <button class="reaction-button" data-reaction="like"
+            {% if user_reaction and user_reaction.reaction_type == 'like' %} style="font-weight: bold;" {% endif %}>
+            👍 Like
+        </button>
+        <button class="reaction-button" data-reaction="dislike"
+            {% if user_reaction and user_reaction.reaction_type == 'dislike' %} style="font-weight: bold;" {% endif %}>
+            👎 Dislike
+        </button>
+        <button class="reaction-button" data-reaction="love"
+            {% if user_reaction and user_reaction.reaction_type == 'love' %} style="font-weight: bold;" {% endif %}>
+            ❤️ Love
+        </button>
+        <!-- Add more reactions as needed -->
+    </div>
+
+    <div class="comments-section">
+        <h4>Comments</h4>
+        <div id="comments-list">
+            {% for comment in comments %}
+            <div class="comment">
+                <div class="comment-author">
+                    <img src="{% static 'images/profile-placeholder.png' %}" alt="{{ comment.user.username }}" class="author-image">
+                    <div class="author-info">
+                        <strong>{{ comment.user.username }}</strong> <small>{{ comment.created_at }}</small>
+                    </div>
+                </div>
+                <p>{{ comment.content }}</p>
+            </div>
+            {% empty %}
+            <p>No comments yet.</p>
+            {% endfor %}
+        </div>
+
+        {% if user.is_authenticated %}
+        <form id="comment-form">
+            {% csrf_token %}
+            <textarea name="content" rows="3" placeholder="Add a comment..." required></textarea>
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>        
+        {% else %}
+        <p><a href="{% url 'login' %}">Log in</a> to leave a comment.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+<script src="{% static 'js/custom.js' %}"></script>
